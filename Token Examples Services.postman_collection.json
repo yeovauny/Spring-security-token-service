@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "43f96e43-a15c-4868-b65f-de0e9967ba6b",
+		"name": "Token Examples Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Token-generator Copy",
+			"item": [
+				{
+					"name": "Api Authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"Eduardo\",\n    \"password\":\"admin\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8030/token-service/api/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8030",
+							"path": [
+								"token-service",
+								"api",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Api Validate Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n\"jwt\":\"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJFZHVhcmRvIiwiaWF0IjoxNjE0NTM4MTcwLCJleHAiOjE2MTQ1MzgyMzB9.fiGv5QQ-8EJ5nLZXoN7XdU9tgCaot1ZAO2D8OU8G-FA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8030/token-service/api/validate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8030",
+							"path": [
+								"token-service",
+								"api",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token Service Health",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n\"jwt\":\"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJFZHVhcmRvIiwiaWF0IjoxNjEyNjMxMDE1LCJleHAiOjE2MTI2MzEwNzV9.HzPY84GUdlVbszM1o_0WLsFU0jFNDoKePpQO1c-qeGg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8030/token-service/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8030",
+							"path": [
+								"token-service",
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,42 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.3.RELEASE'
+	}
+
+	repositories {
+		mavenLocal()
+		jcenter()
+
+		// fin de los repositorios
+
+	}
+
+}
+
+
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation project(':token-generator-domain')
+}
+
+dependencyManagement {
+	imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}
+
+
+test {
+	useJUnitPlatform()
+}

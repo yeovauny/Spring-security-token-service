@@ -1,0 +1,47 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.3.RELEASE'
+	}
+
+	repositories {
+		mavenLocal()
+		jcenter()
+
+
+		// fin de los repositorios
+
+	}
+
+}
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+group = 'com.tyr.autentication'
+version = '1.0.0.RC'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation project(':token-generator-controller')
+	implementation project(':token-generator-domain')
+	implementation project(':token-generator-persistence')
+	implementation project(':token-generator-service')
+
+
+}
+
+dependencyManagement {
+	imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}
+
+
+test {
+	useJUnitPlatform()
+}

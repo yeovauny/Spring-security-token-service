@@ -1,0 +1,9 @@
+rootProject.name = 'token-generator'
+
+
+include 'token-generator-controller'
+include 'token-generator-domain'
+include 'token-generator-persistence'
+include 'token-generator-service'
+include 'token-generator-configuration'
+

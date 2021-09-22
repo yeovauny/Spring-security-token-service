@@ -1,4 +1,4 @@
-rootProject.name = 'token-generator'
+rootProject.name = 'Spring-security'
 
 
 include 'token-generator-controller'

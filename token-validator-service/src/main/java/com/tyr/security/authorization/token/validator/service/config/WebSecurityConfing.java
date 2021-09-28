@@ -34,7 +34,8 @@ public class WebSecurityConfing extends WebSecurityConfigurerAdapter {
                         configurer
                                 .antMatchers(
                                         "/error",
-                                        "/login"
+                                        "/login",
+                                        "/.well-known/jwks.json"
                                 )
                                 .permitAll()
                                 .anyRequest()

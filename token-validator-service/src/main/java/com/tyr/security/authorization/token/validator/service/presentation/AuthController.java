@@ -3,8 +3,11 @@ package com.tyr.security.authorization.token.validator.service.presentation;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import com.nimbusds.jose.jwk.JWKSet;
 import com.tyr.security.authorization.token.validator.service.domain.dto.LoginDto;
 import com.tyr.security.authorization.token.validator.service.domain.service.JwtHelperService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,10 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @CrossOrigin(origins = {"${app.security.cors.origin}"})
@@ -26,13 +26,23 @@ public class AuthController {
     private final JwtHelperService jwtHelperService;
     private final UserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
+    private final JWKSet jwkSet;
 
-    public AuthController(JwtHelperService jwtHelperService, UserDetailsService userDetailsService,
-                          PasswordEncoder passwordEncoder) {
+    public AuthController(JwtHelperService jwtHelperService,
+                          UserDetailsService userDetailsService,
+                          PasswordEncoder passwordEncoder,
+                          JWKSet jwkSet) {
         this.jwtHelperService = jwtHelperService;
         this.userDetailsService = userDetailsService;
         this.passwordEncoder = passwordEncoder;
+        this.jwkSet = jwkSet;
     }
+
+    /**
+     * endpoint what senf the token to the user, for later put on the request body from
+     * another service for autehtincation.
+     *
+     * */
 
     @PostMapping(path = "login", consumes = { MediaType.APPLICATION_FORM_URLENCODED_VALUE })
     public LoginDto login(
@@ -62,4 +72,14 @@ public class AuthController {
 
         throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "User not authenticated");
     }
+
+    /**
+     * endpoint develop for get the jwks on server autentication, for the other applications
+     *
+     * */
+    @GetMapping("/.well-known/jwks.json")
+    public Map<String, Object> keys() {
+        return this.jwkSet.toJSONObject();
+    }
+
 }

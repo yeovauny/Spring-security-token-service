@@ -6,18 +6,18 @@ import org.springframework.lang.NonNull;
 public class LoginDto {
 
     @NonNull
-    private String jwt;
+    private String acces_token;
 
     public LoginDto(String jwt) {
-        this.jwt =jwt;
+        this.acces_token =jwt;
     }
 
     @NonNull
     public String getJwt() {
-        return jwt;
+        return acces_token;
     }
 
     public void setJwt(@NonNull String jwt) {
-        this.jwt = jwt;
+        this.acces_token = jwt;
     }
 }

@@ -3,6 +3,14 @@ server:
   servlet:
     context-path: /token-validator-service
 
+#security:
+#  oauth2:
+#    resource:
+#      jwk:
+#        key-set-uri: http://localhost:8090/token-validator-service/.well-known/jwks.json
+
+
+
 #https://medium.com/swlh/stateless-jwt-authentication-with-spring-boot-a-better-approach-1f5dbae6c30f
 # JKS token configurations
 app:

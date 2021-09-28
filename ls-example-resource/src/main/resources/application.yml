@@ -13,7 +13,9 @@ spring:
       resource:
       resourceserver:
         jwt:
-          jwk-set-uri: http://localhost:8090/token-validator-service/.well-known/jwks.json
+        #jwk-set-uri: http://localhost:8090/token-validator-service/user
+           jwk-set-uri: http://localhost:8090/token-validator-service/.well-known/jwks.json
+
 logging:
   level:
     org:

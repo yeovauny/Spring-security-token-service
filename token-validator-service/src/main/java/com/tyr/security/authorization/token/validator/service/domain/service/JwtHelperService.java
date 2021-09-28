@@ -11,11 +11,10 @@ import java.util.Map;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 
-
-@Component
+@Service
 public class JwtHelperService {
 
     private final RSAPrivateKey privateKey;

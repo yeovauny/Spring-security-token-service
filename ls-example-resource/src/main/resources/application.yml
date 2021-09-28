@@ -1,0 +1,21 @@
+server:
+  port: 8091
+  servlet:
+    context-path: /ls-example-resource
+
+
+spring:
+  zipkin:
+    enabled: false
+  #Spring security 5 config for validate
+  security:
+    oauth2:
+      resource:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8090/token-validator-service/.well-known/jwks.json
+logging:
+  level:
+    org:
+      Springframework:
+        security: INFO

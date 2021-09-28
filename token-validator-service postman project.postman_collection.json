@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "364d3623-b7bc-4af5-97a5-40c6759c00b0",
+		"name": "token-validator-service postman project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Token-validator-service",
+			"item": [
+				{
+					"name": "Get token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8090/token-validator-service/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"token-validator-service",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "token validator",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwibmJmIjoxNjMyNDI4MzI3LCJleHAiOjE2MzI1MTQ3MjcsInVzZXJJZCI6IjEiLCJhdXRob3JpdGllcyI6IlVTRVIiLCJ1c2VybmFtZSI6InVzZXIifQ.LueO6fQ_N7_kJtZR34haAf9EfV4GYwojp1FeWNA-8wfeLDZZJTKSRcvevCScI28ewtbzJNGgh2WmjUW7sPH1jXQvsw34gl5QBWh3czgl1uJaJi7CkVx_yWszIW9lDJaQoWabTqrcPI0uMIWGlTkY89PQ4VCwG9qE9AyWfaVvhoq7ibA9jHBOQhVCrNkogrF1X1Ulofc-mZ3X9pKIJeyqYDZCxzqDkvo-4Ym7MmQlhtUxVqA_rTyvL7qbfgu-g9NNywwY_ealNO34tdO_VWxSxlNRkiIehNJt0CuoyR_51BxY4gRDarXLRluiv84_M20iLMkfneOkdYzZNvhCma6VUw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8090/token-validator-service/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"token-validator-service",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ls-example-service",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwibmJmIjoxNjMyNDMyNTY0LCJleHAiOjE2MzI1MTg5NjQsInVzZXJJZCI6IjEiLCJhdXRob3JpdGllcyI6IlVTRVIiLCJ1c2VybmFtZSI6InVzZXIifQ.fVXxmNogr1ymSeqHNh3ewBermxovjJ49BYs5c2ldCkXoqK1rCpk_9RWhzuNS7WN810kQs9T7YXcuA_ezONVg8W5xskN9QggoaE6Y4GvovCc71PqE6sCxMdq8Re779ED2Vix3nkWz5Hiyb4rLRXJmosgt-DkBb5dWzq5nCDMbkOgzj7L8eACpMyuzrXgew2XSGVzUo2PhMSE7JnbXuX9P1rRijd0-4R04N9qi-xpx0tB0geoOgUFr-80qh6SqkAEr6g7cpSD3E0MZPCWQnYQz9X_xxYw8tOEfcQXI-y56izUQvztjnOk_qoJzpzgSUS-Yx3V_cdYTrfPfpRcWwu9epQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8091/ls-example-resource/resource",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8091",
+							"path": [
+								"ls-example-resource",
+								"resource"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

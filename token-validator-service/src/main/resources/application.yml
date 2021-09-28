@@ -1,35 +1,32 @@
 server:
-  port: 8030
+  port: 8090
   servlet:
-    context-path: /token-service
-
-
-#actuator configuracion
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health
-      base-path:
-token:
-  expiretime: 1
-  cypher: Z3cr10
+    context-path: /token-validator-service
 
 #https://medium.com/swlh/stateless-jwt-authentication-with-spring-boot-a-better-approach-1f5dbae6c30f
 # JKS token configurations
 app:
   security:
+    cors:
+      origin: http://localhost:3000
     jwt:
       keystore-location: jks/token-jwt.jks
       keystore-password: token-pass
       key-alias: token-generator
       private-key-passphrase: token-pass
 
-#https://github.com/IMS94/spring-boot-jwt-authentication/tree/master/src/main/java/com/example/springboot/jwt/security
-#step to create a jks.
+  #https://github.com/IMS94/spring-boot-jwt-authentication/tree/master/src/main/java/com/example/springboot/jwt/security
+  #step to create a jks.
   #./keytool -genkeypair \
   #-alias token-generator \
   #-keyalg RSA \
   #-keypass token-pass \
   #-keystore token-jwt.jks \
   #-storepass token-pass
+
+
+logging:
+  level:
+    org:
+      Springframework:
+        security: DEBUG

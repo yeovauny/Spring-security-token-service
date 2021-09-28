@@ -6,10 +6,7 @@ buildscript {
 	repositories {
 		mavenLocal()
 		jcenter()
-
-
-		// fin de los repositorios
-
+		
 	}
 
 }
@@ -26,6 +23,7 @@ repositories {
 
 dependencies {
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	implementation 'com.auth0:java-jwt:3.17.0'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'

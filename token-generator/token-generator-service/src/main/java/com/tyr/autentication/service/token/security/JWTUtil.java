@@ -12,7 +12,6 @@ import java.util.Date;
 @Component
 public class JWTUtil {
 
-
     @Value("${token.cypher}")
     private String key;
 

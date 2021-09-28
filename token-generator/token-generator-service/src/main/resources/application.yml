@@ -1,16 +1,2 @@
-server:
-  port: 8030
-  servlet:
-    context-path: /token-service
 
 
-#actuator configuracion
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health
-      base-path: /token-service
-
-token:
-   expiretime: 1
